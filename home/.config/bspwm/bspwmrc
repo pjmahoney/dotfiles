@@ -1,0 +1,56 @@
+#! /bin/bash
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+sxhkd &
+dunst &
+light-locker &
+
+# declare desktops per monitor
+# todo: change monitor names/transfer script, or
+# separate display from desktop name.
+for monitor in $(bspc query -M --names); do
+    # echo $monitor
+    # echo $(bspc query -M -m $monitor)
+	if [ "$monitor" == 'eDP-1-1' ]; then
+        bspc monitor $(bspc query -M -m $monitor) -d web term chat code music 6 7 8 9 10
+        continue
+    fi
+    bspc monitor $(bspc query -M -m $monitor) -d 00 01 10 11
+done
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config click_to_focus       button1
+
+#Termite
+bspc rule -a Termite follow=on state=floating
+
+#Compositor
+# Terminate already running bar instances
+killall -q compton
+
+# Wait until the processes have been shut down
+while pgrep -x compton >/dev/null; do sleep 1; done
+
+# Launch Compton
+compton --config ~/.config/compton.conf -b &
+
+#Wallpaper
+cycle -n 600 change_wallpaper &
+
+# Polybar
+# Terminate already running bar instances
+killall -q polybar
+
+# Wait until the processes have been shut down
+while pgrep -x polybar >/dev/null; do sleep 1; done
+
+# Launch bar1 and bar2
+polybar -r top &
+polybar -r bottom &
+polybar -r extend &

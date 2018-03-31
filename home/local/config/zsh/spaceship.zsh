@@ -1,0 +1,1 @@
+export SPACESHIP_BATTERY_SHOW=false
