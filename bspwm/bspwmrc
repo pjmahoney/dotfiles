@@ -4,7 +4,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 sxhkd &
 dunst &
-light-locker &
+#light-locker &
 
 # declare desktops per monitor
 # todo: change monitor names/transfer script, or

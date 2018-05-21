@@ -394,7 +394,7 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 
-set rtp+=/home/pmahoney/.local/lib/python3.5/site-packages/powerline/bindings/vim
+set rtp+=/home/pmahoney/.local/lib/python3/site-packages/powerline/bindings/vim
 
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
