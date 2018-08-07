@@ -3,7 +3,7 @@
 # Install packages
 sudo apt update
 sudo apt upgrade -y
-sudo apt instal -y git htop vim zsh tmux python3-pip
+sudo apt install -y git htop vim zsh tmux python3-pip
 
 # Update pip
 pip3 install -U pip --user
