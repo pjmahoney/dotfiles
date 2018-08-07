@@ -26,4 +26,4 @@ $HOME/.homesick/repos/homeshick/bin/homeshick clone -bf pjmahoney/dotfiles
 $HOME/.homesick/repos/homeshick/bin/homeshick link -bf
 
 # Change shell to zsh
-chsh -s /bin/zsh
+sudo chsh -s /bin/zsh $USER
