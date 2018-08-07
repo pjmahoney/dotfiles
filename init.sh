@@ -3,7 +3,7 @@
 # Install packages
 sudo apt update
 sudo apt -y upgrade 
-sudo apt -y install git htop vim zsh tmux python3-pip
+sudo apt -y install curl git htop vim zsh tmux python3-pip
 
 # Update pip
 pip3 install -U pip --user
@@ -18,7 +18,7 @@ mkdir -p ~/local/depot
 
 # Install antigen
 mkdir -p ~/local/depot/antigen
-curl -L git.io/antigen > ~/local/depot/antigenantigen.zsh
+curl -L git.io/antigen > ~/local/depot/antigen/antigen.zsh
 
 # Install homeschick and dotfiles
 git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
