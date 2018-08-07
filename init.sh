@@ -2,8 +2,8 @@
 
 # Install packages
 sudo apt update
-sudo apt upgrade
-sudo apt install git htop vim zsh tmux
+sudo apt upgrade -y
+sudo apt instal -y git htop vim zsh tmux
 
 # Update pip
 pip3 install -U pip --user
@@ -22,7 +22,8 @@ curl -L git.io/antigen > ~/local/depot/antigenantigen.zsh
 
 # Install homeschick and dotfiles
 git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-$HOME/.homesick/repos/homeshick/bin/homeshick clone -f pjmahoney/dotfiles
+$HOME/.homesick/repos/homeshick/bin/homeshick clone -bf pjmahoney/dotfiles
+$HOME/.homesick/repos/homeshick/bin/homeshick link -bf
 
 # Change shell to zsh
 chsh -s /bin/zsh
