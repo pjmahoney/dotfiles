@@ -2,9 +2,11 @@
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+xrandr --output eDP-1-1 --auto
+xrandr --output HDMI-1-1 --left-of eDP-1-1 --auto
+
 sxhkd &
 dunst &
-#light-locker &
 
 # declare desktops per monitor
 # todo: change monitor names/transfer script, or
@@ -54,3 +56,15 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 polybar -r top &
 polybar -r bottom &
 polybar -r extend &
+
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT SSH_AUTH_SOCK
+
+/usr/bin/gnome-keyring-daemon --start --components=gpg
+/usr/bin/gnome-keyring-daemon --start --components=pkcs11
+/usr/bin/gnome-keyring-daemon --start --components=secrets
+/usr/bin/gnome-keyring-daemon --start --components=ssh
+
+xautolock -time 5 -locker $HOME/bin/lock -killer 'systemctl suspend' &
+
+start_mopidy

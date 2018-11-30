@@ -23,7 +23,6 @@ antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
 
-
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
@@ -38,13 +37,32 @@ antigen apply
 
 if [[ -e $HOME/local/depot/gcloud/google-cloud-sdk ]]; then
     for f in $HOME/local/depot/gcloud/google-cloud-sdk/*.zsh.inc; do
-        source $f;
+        echo "Loading file " $f;
+        source "$f";
     done
+    unset f
 fi
 
 if [[ -e $HOME/local/config/zsh ]]; then
-  for f in $HOME/local/config/zsh/*.zsh; do
-    source $f;
-  done
+    for f in $HOME/local/config/zsh/*.zsh; do
+        #echo "Loading file " $f;
+        source "$f";
+    done
+    unset f
 fi
 
+# Thanks jessfraz https://github.com/jessfraz/dotfiles/blob/master/.bash_profile
+for f in ~/.{extra,sitesee}.zsh; do
+	if [[ -r "$f" ]] && [[ -f "$f" ]]; then
+        # echo "Loading file " $f;
+		source "$f"
+	fi
+done
+unset f
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/pmahoney/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/pmahoney/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/pmahoney/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /home/pmahoney/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh

@@ -10,6 +10,11 @@ super + Return
 super + d
 	rofi -show drun
 
+super + shift + s
+	awssh; \
+	gcpssh; \
+	rofi -show ssh
+
 super + space
 	rofi -show run
 
@@ -18,7 +23,8 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 super + l
-    light-locker-command -l
+    xautolock -locknow
+    
 #
 # bspwm hotkeys
 #
@@ -178,16 +184,16 @@ XF86AudioMute
 	toggle_mute
 
 XF86AudioPlay
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.mopidy /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 XF86AudioStop
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.mopidy /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
 
 XF86AudioNext
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.mopidy /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 XF86AudioPrev
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.mopidy /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 Print
 	shutter -f

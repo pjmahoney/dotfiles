@@ -12,6 +12,8 @@ export EDITOR=vim
 
 export EXTRA_NVCCFLAGS="-Xcompiler -std=c++98"
 
+export QT_QPA_PLATFORMTHEME=gtk2
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -55,3 +57,5 @@ fi
 #export PYTHONPATH=$PYTHONPATH:"/usr/local/lib/python3.5/dist-packages/vtk/"
 
 #$HOME/local/depot/VTK/build/unix_path.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"
